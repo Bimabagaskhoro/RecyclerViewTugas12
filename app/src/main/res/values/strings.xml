@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">RecyclerViewTugas12</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="home">Home</string>
+
+    <string-array name="name">
+        <item>Iphone 6</item>
+        <item>Iphone 7</item>
+        <item>Iphone 8</item>
+        <item>Iphone X</item>
+        <item>Iphone XR</item>
+        <item>Iphone XS</item>
+        <item>Iphone 11</item>
+        <item>Iphone 12</item>
+    </string-array>
+
+    <string-array name="price">
+        <item>Rp2.990.000</item>
+        <item>Rp4.400.000</item>
+        <item>Rp4.700.000</item>
+        <item>Rp5.699.000</item>
+        <item>Rp7.499.000</item>
+        <item>Rp 11.999.000</item>
+        <item>Rp 12.999.000</item>
+        <item>Rp15.990.000</item>
+    </string-array>
+
+    <string-array name="avatar">
+        <item>https://p-id.ipricegroup.com/uploaded_60e115cda8838a12591f4406afec6f22.jpg</item>
+        <item>https://www.jagojet.com/media/catalog/product/cache/4/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/7/_/7_red_edition1.jpg</item>
+        <item>https://cdn.eraspace.com/pub/media/catalog/product/i/p/iphone-8-silver_4_4.jpg</item>
+        <item>https://p-id.ipricegroup.com/uploaded_4892f7051560b7fcec9893131164e62e.jpg</item>
+        <item>https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-2601904/apple_apple-iphone-xr-256-gb-smartphone-_full27.jpg</item>
+        <item>https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/undefined/apple_apple-iphone-xs-256-gb-smartphone_full20.jpg</item>
+        <item>https://asset.kompas.com/crops/YRsYy2Mz6GzhkXFVMakb5gJA6zU=/29x50:734x521/750x500/data/photo/2019/09/30/5d916642be88c.jpg</item>
+        <item>https://akcdn.detik.net.id/visual/2020/10/14/iphone-12-dan-12-mini-1_169.png?w=650</item>
+
+    </string-array>
+</resources>

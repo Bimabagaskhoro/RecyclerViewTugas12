@@ -7,7 +7,7 @@ import com.bimabagaskhoro.recyclerviewtugas12.databinding.ItemBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class ItemAdapter(private val listItem: ArrayList<Item>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(private val listItem: ArrayList<Item>, private val onClick: (Item) -> Unit) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemAdapter.ItemViewHolder {
         val view = ItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ItemViewHolder((view))
@@ -28,7 +28,10 @@ class ItemAdapter(private val listItem: ArrayList<Item>) : RecyclerView.Adapter<
                     .apply(RequestOptions().override(55, 55))
                     .into(imgUser)
                 tvName.text = item.name
-                tvUsername.text = item.price
+                tvPrice.text = item.price
+            }
+            itemView.setOnClickListener {
+                onClick(item)
             }
         }
     }

@@ -18,7 +18,11 @@ class MainActivity : AppCompatActivity() {
         val actionbar = supportActionBar
         actionbar!!.title = getString(R.string.home)
 
-        val adapter = ItemAdapter(getlistItem())
+        val adapter = ItemAdapter(getlistItem()){
+            val intent = Intent(this, DetailActivity::class.java)
+            intent.putExtra(DetailActivity.EXTRA_DATA, it)
+            startActivity(intent)
+        }
         
         binding.apply {
             rvItem.layoutManager = LinearLayoutManager(this@MainActivity)

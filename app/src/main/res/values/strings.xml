@@ -2,6 +2,8 @@
     <string name="app_name">RecyclerViewTugas12</string>
     <string name="deskripsi">Deskripsi</string>
     <string name="home">Home</string>
+    <string name="price">Price :</string>
+    <string name="buy_item">Buy Item</string>
 
     <string-array name="name">
         <item>Iphone 6</item>

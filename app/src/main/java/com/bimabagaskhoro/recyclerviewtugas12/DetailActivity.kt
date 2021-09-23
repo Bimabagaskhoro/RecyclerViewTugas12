@@ -47,7 +47,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v?.id){
             R.id.btn_buy_item -> {
-                Toast.makeText(this, "You Buy this Item", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "You Like This Movies", Toast.LENGTH_SHORT).show()
             }
         }
     }

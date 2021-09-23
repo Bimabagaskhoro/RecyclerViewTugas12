@@ -4,6 +4,8 @@
     <string name="home">Home</string>
     <string name="price">Price :</string>
     <string name="buy_item">Buy Item</string>
+    <string name="overview">overview</string>
+    <string name="like_movies">Like Movies</string>
 
     <string-array name="name">
         <item>Iphone 6</item>

@@ -1,5 +1,6 @@
 package com.bimabagaskhoro.recyclerviewtugas12
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -15,7 +16,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 @Suppress("UNCHECKED_CAST")
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
     val itemAdapter = ItemAdapter(arrayListOf())
     private lateinit var binding: ActivityMainBinding
 

@@ -1,8 +1,11 @@
 package com.bimabagaskhoro.recyclerviewtugas12.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.bimabagaskhoro.recyclerviewtugas12.DetailActivity
 import com.bimabagaskhoro.recyclerviewtugas12.databinding.ItemBinding
 import com.bimabagaskhoro.recyclerviewtugas12.model.ResultsItem
 import com.bumptech.glide.Glide
@@ -40,10 +43,12 @@ class ItemAdapter(private val listItem: ArrayList<ResultsItem> ): RecyclerView.A
                     .into(imgUser)
                 tvName.text = item.originalTitle
                 tvPrice.text = item.overview
+                itemView.setOnClickListener {
+                    val moveDetail = Intent(itemView.context,DetailActivity::class.java)
+                    moveDetail.putExtra(DetailActivity.EXTRA_DATA,item)
+                    startActivity(itemView.context, moveDetail, null)
+                }
             }
-//            itemView.setOnClickListener {
-//                onClick(item)
-//            }
         }
     }
 }

@@ -29,9 +29,8 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_item_detail"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:layout_marginTop="24dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 app:civ_circle_background_color="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

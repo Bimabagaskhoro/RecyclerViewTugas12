@@ -6,16 +6,23 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.bimabagaskhoro.recyclerviewtugas12.databinding.ActivityDetailBinding
+import com.bimabagaskhoro.recyclerviewtugas12.databinding.ActivityMainBinding
+import com.bimabagaskhoro.recyclerviewtugas12.model.ResultsItem
 import com.bumptech.glide.Glide
 
+@Suppress("CAST_NEVER_SUCCEEDS")
 class DetailActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
         const val EXTRA_DATA = "extra_data"
+        const val EXTRA_LINK = "https://image.tmdb.org/t/p/w500"
     }
+    private lateinit var binding: ActivityDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
+        binding = ActivityDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val actionbar = supportActionBar
         actionbar!!.title = "Detail Item"
@@ -28,12 +35,12 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         val tvPrice: TextView = findViewById(R.id.tv_price_detail)
         val imgAvatar: ImageView = findViewById(R.id.img_item_detail)
 
-        val item = intent.getParcelableExtra<Item>(EXTRA_DATA) as Item
+        val item = intent.getParcelableExtra<ResultsItem>(EXTRA_DATA) as ResultsItem
 
-        tvName.text = item.name
-        tvPrice.text = item.price
+        tvName.text = item.originalTitle
+        tvPrice.text = item.overview
         Glide.with(this)
-            .load(item.avatar)
+            .load(EXTRA_LINK+item.posterPath)
             .into(imgAvatar)
     }
 

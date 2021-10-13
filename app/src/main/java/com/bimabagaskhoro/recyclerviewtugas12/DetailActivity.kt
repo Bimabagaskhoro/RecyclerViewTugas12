@@ -8,17 +8,18 @@ import android.widget.TextView
 import android.widget.Toast
 import com.bimabagaskhoro.recyclerviewtugas12.databinding.ActivityDetailBinding
 import com.bimabagaskhoro.recyclerviewtugas12.databinding.ActivityMainBinding
+import com.bimabagaskhoro.recyclerviewtugas12.model.DetailMovieResponse
 import com.bimabagaskhoro.recyclerviewtugas12.model.ResultsItem
+import com.bimabagaskhoro.recyclerviewtugas12.mvp.detail.DetailMovieContract
+import com.bimabagaskhoro.recyclerviewtugas12.mvp.detail.DetailMoviePresenter
 import com.bumptech.glide.Glide
 
 @Suppress("CAST_NEVER_SUCCEEDS")
-class DetailActivity : AppCompatActivity(), View.OnClickListener {
+class DetailActivity : AppCompatActivity(), View.OnClickListener, DetailMovieContract{
+    private lateinit var binding: ActivityDetailBinding
     companion object {
-        const val EXTRA_DATA = "extra_data"
         const val EXTRA_LINK = "https://image.tmdb.org/t/p/w500"
     }
-    private lateinit var binding: ActivityDetailBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
@@ -27,21 +28,11 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         val actionbar = supportActionBar
         actionbar!!.title = "Detail Item"
         actionbar.setDisplayHomeAsUpEnabled(true)
-        showDetail()
-    }
 
-    private fun showDetail() {
-        val tvName: TextView = findViewById(R.id.tv_name_detail)
-        val tvPrice: TextView = findViewById(R.id.tv_price_detail)
-        val imgAvatar: ImageView = findViewById(R.id.img_item_detail)
+        var id = intent.getStringExtra("id_movie")
+        DetailMoviePresenter(this).getDetailMovie(id)
 
-        val item = intent.getParcelableExtra<ResultsItem>(EXTRA_DATA) as ResultsItem
-
-        tvName.text = item.originalTitle
-        tvPrice.text = item.overview
-        Glide.with(this)
-            .load(EXTRA_LINK+item.posterPath)
-            .into(imgAvatar)
+        //showDetail()
     }
 
     override fun onClick(v: View?) {
@@ -50,5 +41,17 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this, "You Like This Movies", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    override fun onMovieSuccess(item: DetailMovieResponse) {
+        binding.tvNameDetail.text = item.originalTitle
+        binding.tvPriceDetail.text = item.overview
+        Glide.with(this)
+            .load(EXTRA_LINK+item.posterPath)
+            .into(binding.imgItemDetail)
+    }
+
+    override fun onMovieFailed(t: Throwable) {
+        Toast.makeText(this@DetailActivity, "Reponse Gagal", Toast.LENGTH_LONG).show()
     }
 }

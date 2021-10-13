@@ -11,7 +11,8 @@ import com.bimabagaskhoro.recyclerviewtugas12.model.ResultsItem
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class ItemAdapter(private val listItem: ArrayList<ResultsItem> ): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(private val listItem: ArrayList<ResultsItem> ):
+        RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
     companion object {
         const val EXTRA_LINK = "https://image.tmdb.org/t/p/w500"
     }
@@ -45,8 +46,8 @@ class ItemAdapter(private val listItem: ArrayList<ResultsItem> ): RecyclerView.A
                 tvPrice.text = item.overview
                 itemView.setOnClickListener {
                     val moveDetail = Intent(itemView.context,DetailActivity::class.java)
-                    moveDetail.putExtra(DetailActivity.EXTRA_DATA,item)
-                    startActivity(itemView.context, moveDetail, null)
+                    moveDetail.putExtra("id_movie", item.id.toString())
+                    itemView.context.startActivity(moveDetail)
                 }
             }
         }
